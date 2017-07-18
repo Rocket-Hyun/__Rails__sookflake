@@ -1,0 +1,98 @@
+<style>
+.bg-1 {background-color: #EFEFEF; color: #ffffff;}
+</style>
+
+
+<div class="container-fluid bg-1 text-center" style="margin-bottom: 50px;padding-bottom: 60px; padding-top: 50px;">
+  <img src="http://imgdb.kr/b4zn.dn" class="img-responsive img-circle margin" style="display:inline;margin-top: 50px;" width="150" height="350">
+  <h4 style ="color:#898080;"><%= current_user.email %></h4>
+  </div>
+  
+ 
+ 
+  <!--참여프로젝트-->
+    <div class="container" id="popular" >
+        <label for="ProjectsName1" style="margin-bottom: 20px;">내가 참여한 공구</label>
+        <!-- Page Features -->
+                <!-- /.row -->
+    
+            <!-- Page Features -->
+     
+  <div class="row text-center">
+      
+      <% if @mymy.size == 0 %>
+           <div class="alert alert-info" role="alert">
+              <a href="/index/read" class="alert-link">
+                  아직 공구에 참여하지 않았습니다!<br>공구에 참여해보세요!
+              </a>
+            </div>
+      <% else %>
+         <% @mymy.each do |p| %> 
+           <a href="/index/rewrite/<%= p.project_id %>">
+            <div class="col-md-3 col-xs-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="inner-img" style="width:100%;height:300px; background-color:black; background-image: url('<%= Project.find(p.project_id).img_url %>'); background-repeat: no-repeat;background-position: 50% 25%; background-size:cover;"></div>
+                    <div class="caption">
+                        <h4 style="color:#36A8C5"><%= Project.find(p.project_id).title %><br/><small><%= Project.find(p.project_id).detail.first(18) %>...</small></h4>
+                        
+                        <hr style="margin:10px 10px;"/>
+                        <div class="row">
+                            <div class="col-xs-6">
+                            <h5 style="color:gray"><%= Project.find(p.project_id).price %> 원</h5>
+                            </div>
+                            <div class="col-xs-6">
+                            <h5 style="color:gray"><%= Project.find(p.project_id).deadline %></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/index/exit_pj/<%= p.project_id %>"><button type="submit" class="btn btn-sm" style="margin-bottom: 40px;">
+                    참여취소</button></a>
+
+            </div>
+           </a>
+           <%end%>
+       <% end %>
+   </div>
+   
+  <!--내가 만든 프로젝트-->
+
+        <!--<div class="container" id="popular">-->
+             <label for="ProjectName2" style="margin-bottom: 20px; margin-top: 40px;">내가 진행중인 공구</label>
+                   <div class="row text-center">
+   
+      <% if @my.size == 0 %>
+           <div class="alert alert-info col-xs-12" role="alert">
+              <a href="/index/write" class="alert-link">
+                  아직 공구를 만들지 않았습니다!<br>직접 공구를 만들어 보시는건 어떠세요?
+              </a>
+            </div>
+      <% else %>
+          <% @my.each do |p| %> 
+             <a href="/index/rewrite/<%= p.id %>">
+            <div class="col-md-3 col-xs-6 hero-feature">
+                        <div class="thumbnail">
+                            <div class="inner-img" style="width:100%;height:300px; background-color:black; background-image: url('<%= p.img_url %>'); background-repeat: no-repeat;background-position: 50% 25%; background-size:cover;"></div>
+                            <div class="caption">
+                                <h4 style="color:#36A8C5"><%= p.title %><br/><small><%= p.detail %></small></h4>
+                                <hr style="margin:10px 10px;"/>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                    <h5 style="color:gray"><%= p.price %> 원</h5>
+                                    </div>
+                                    <div class="col-xs-6">
+                                    <h5 style="color:gray"><%= p.deadline %></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/index/pink/<%= p.id %>"><button type="submit" class="btn btn-sm" style="margin-bottom: 40px;">
+                            삭제</button></a>
+                    </div>
+                    </a>
+       
+            <%end%>
+        <% end %>
+
+            </div>
+        </div>

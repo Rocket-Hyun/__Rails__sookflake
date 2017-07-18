@@ -1,0 +1,95 @@
+ <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <img src="http://imgdb.kr/b4BC.dn" height="40%" width="40%" style="margin-top: 30px;">
+                    <hr class="star-primary">
+                </div>
+            </div><br/>
+
+           
+           
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form action="/index/write_real" method="POST" enctype="multipart/form-data">
+                       
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>상품명</label>
+                                <input type="text" class="form-control" placeholder="상품명을 입력해 주세요." name="title">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>상품 이미지</label>
+                                <input type="file" name="img_url" class="file" accept="image/*">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+                        
+                       
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>상품 가격</label>
+                                <input type="text" class="form-control" placeholder="공구가를 입력해 주세요. (숫자만 입력)" name="price">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>공구 마감 시간</label>
+                                <input type="date" class="form-control" placeholder="공구 마감 시간을 입력해 주세요." name="deadline">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        
+                      <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>참여 인원</label>
+                                <input type="number" class="form-control" placeholder="공구 진행이 가능한 최소 인원을 입력해 주세요." name="num_peo">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                       
+                         <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>오픈카톡방 (URL)</label>
+                                <input type="text" class="form-control" placeholder="원활한 공구 진행을 위해 오픈카톡방을 만든 후 URL을 작성해주세요." name= "total_peo">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                       
+                       
+                       
+                       
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>상품 설명</label>
+                                <textarea rows="5" class="form-control" placeholder="상품명 하단에 업로드됩니다. (간단한 설명 필수)" name="detail"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                       
+                       <input type="hidden" name="idid" value="<%= current_user.id %>">
+                       
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                               <button type="submit" class="btn btn-info">확인</button><br/><br/><br/><br/><br/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   </form>
+

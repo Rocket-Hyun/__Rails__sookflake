@@ -1,0 +1,118 @@
+
+        <!-- Portfolio Item Heading -->
+        <div class="container">
+        <div class="row">
+            
+            
+            <div class="col-lg-12">
+                <h1 class="page-header"><strong><%= @project.title %></strong><br/>
+                 <small><%= @project.detail %></small></h1>
+            </div>
+            
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="container">
+        <div class="row">
+        
+            <div class="col-md-6">
+                <div class="img-thumbnail" style="width:100%; height:400px; background-color:black; background-image: url('<%= @project.img_url %>'); background-repeat: no-repeat;background-position: 50% 50%; background-size:cover;"></div>
+                 
+            </div>
+                <div class="col-md-6">
+                <h3 style="line-height:1.3em;"><small>공구 가격</small><br/><%= @project.price %> 원</h3>
+                
+                <h3 style="line-height:1.3em;"><small>공구 마감 날짜</small><br/><%= @project.deadline %></h3>
+                
+                <h3 style="line-height:1.3em;"><small>참여 인원</small><br/><%= @participates.size.to_i %> 명 / <%= @project.num_peo.to_i %> 명</h3>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%= @participates.size %>" aria-valuemin="0" aria-valuemax="<%= @project.num_peo %>" style="width:<%= @percent + 30 %>%">
+                    <span class="sr-only">45% Complete</span>
+                  </div>
+                </div>               
+               
+                <div class="alert alert-info">
+  <strong><h4><a href="<%= @project.total_peo %>" target="_blank"><%= @project.total_peo %></a></h4></strong>
+  <h5 style="line-height:1.5em;"></h5>위 주소는 오픈카카오톡 URL입니다.<br/>참여 버튼을 누른 후 카톡방에서 공구 진행 상태를 확인해주세요.<br/>
+  인원이 초과되었더라도 공구에 참여하실 수 있습니다.</h5>
+</div>
+
+            <% if @participaters.include? (current_user.id)  %>
+                <a class="btn btn-info end-btn" style="margin-bottom: 100px;">이미 참여하셨습니다.</a>
+            <% else %>
+                <a class="btn btn-info join-btn" href="/index/participate/<%= @project.id %>" style="margin-bottom: 100px;">참여하기</a>
+            <% end %>
+            
+        </div>    
+        </div>
+            
+    <div class="well">
+        <div>
+            <h4>공구 참가자 명단</h4><br/>
+            <% @participaters.each do |p| %>
+             <%= User.find(p).email %><br/>
+            <% end %>
+            
+        </div>
+    </div>
+        
+               
+          <div class="form-group">
+            <label for="comment">댓글 작성하기</label>
+
+    
+            <form action="/index/comment" method="POST">
+                    <textarea name="djdj" class="form-control" rows="3" style="width:100%;" placeholder="댓글을 입력해 주세요."></textarea>
+                  <button type="submit" class="btn btn-default" style="margin-bottom: 10px; margin-top:10px;">작성</button>
+                   <input type="hidden" name="project_id" value="<%= @project.id %>">
+                <input type="hidden" name="ididid" value="<%= current_user.id %>">
+            </form>
+        </div>
+
+
+  
+   
+    <% @comment.reverse.each do |p| %> 
+    
+    <article class="row" style="width:1405px;">
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i>  <%= User.find(p.user_id).email %></div>
+                  </header>
+                  
+                  <div class="comment-post">
+                     
+                    <p><%= p.comments %></p>
+                        <% if User.find(p.user_id).id == current_user.id %>
+                    
+                            <a href="/index/delete/<%= p.id %>">[삭제]</a>
+                   
+                        <% end %>
+                    </div>
+                </div>
+              </div>
+           
+    </article> 
+     <%end%>
+    </div>
+    
+    <script>
+    $(".join-btn").click(function() {
+        swal(
+            '공구 참여 완료!',
+            '오픈채팅방에 들어와주세요!',
+            'success'
+          )
+    });
+    $(".end-btn").click(function() {
+        swal(
+            '이미 참여하셨습니다!',
+            '다른 눈송이들과 함께하세요!',
+            'error'
+          )
+    });
+    </script>

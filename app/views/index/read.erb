@@ -1,0 +1,42 @@
+
+
+
+
+
+
+       <div class="container" id="popular">
+           <div class="row">
+               
+              <div class="col-lg-12 text-center">
+      <img src = "http://imgdb.kr/b4DZ.dn" height="40%" width="40%" style="margin-top: 30px;">
+      <hr class="star-primary" style="margin-bottom: 40px;"></div>
+
+            <div class="row text-center">
+    
+     <% @green.each do |p| %> 
+        <a href="/index/rewrite/<%= p.id %>">
+            <div class="col-md-3 col-xs-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="inner-img" style="width:100%;height:300px; background-color:black; background-image: url('<%= p.img_url %>'); background-repeat: no-repeat;background-position: 50% 25%; background-size:cover;"></div>
+                    <div class="caption">
+                        <h4 style="color:#36A8C5"><%= p.title %><br/><small><%= p.detail.first(18)%>...</small></h4>
+                        
+                        <hr style="margin:10px 10px;"/>
+                        <div class="row">
+                            <div class="col-xs-6">
+                            <h5 style="color:gray"><%= p.price %> 원</h5>
+                            </div>
+                            <div class="col-xs-6">
+                            <h5 style="color:gray"><%= p.deadline %></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+  </a>
+  
+    <%end%>
+    
+            </div>
+        </div>
