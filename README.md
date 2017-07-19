@@ -1,5 +1,5 @@
 # 숙명여자대학교 공동구매 사이트 ‘눈송이 공구방’
-https://goo.gl/Ldq44d (관련PDF )
+https://goo.gl/Ldq44d (관련PDF 다운링크)
 
 ### 툴: Ruby on Rails
 ### API: 부트스트랩
