@@ -1,24 +1,12 @@
+# 숙명여자대학교 공동구매 사이트 ‘눈송이 공구방’
+https://goo.gl/Ldq44d (관련PDF )
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+### 툴: Ruby on Rails
+### API: 부트스트랩
+#### 설명: 숙명여자대학교의 상징물 ‘눈송이’와 관련된 물품들을 학생들끼리 공동 구매할 수 있도록 돕는 사이트
 
+* 로그인 기능 (숙명여자대학교 이메일만 가입 가능)
+* 공동 구매방 생성/수정/삭제/참여 기능
+* 댓글 기능
+* 마이페이지 기능
 
-Welcome to your Rails project on Cloud9 IDE!
-
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://home--ekeknm.c9users.io/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
